@@ -26,7 +26,7 @@ public class Main {
         outFile.fileClose();
 
         System.out.println("\n*** Reading/printing entire file using fileRead method\n");
-
+        
         inFile.fileRead();
         inFile.fileClose();
 
