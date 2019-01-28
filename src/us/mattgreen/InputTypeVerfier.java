@@ -9,6 +9,20 @@ package us.mattgreen;
  *
  * @author tyler
  */
-public class AminalInput {
+public class InputTypeVerfier {
     
+    public String checkString()
+    {
+        
+    }
+    
+    public int checkInt()
+    {
+        
+    }
+    
+    public char checkChar()
+    {
+        
+    }
 }
