@@ -9,6 +9,13 @@ package us.mattgreen;
  *
  * @author tyler
  */
-public class AminalInput {
-    
+public class InputTypeVerifier {
+  
+    public int checkInt(String str) throws NumberFormatException
+    { 
+               int i = Integer.parseInt(str);
+            
+        return i;
+    }
+     
 }
