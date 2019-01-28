@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class AnimalInput  {
     
     private ArrayList<Talkable>zoo;
-    InputTypeVerfier it = new InputTypeVerfier();
+    InputTypeVerifier it = new InputTypeVerifier();
     public AnimalInput()
     {
         
