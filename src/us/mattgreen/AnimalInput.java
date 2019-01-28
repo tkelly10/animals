@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class AnimalInput  {
     
     private ArrayList<Talkable>zoo;
-    
+    InputTypeVerfier it = new InputTypeVerfier();
     public AnimalInput()
     {
         
@@ -34,17 +34,30 @@ public class AnimalInput  {
         System.out.println("Which are you looking for Cat, Dog, or Student? ");
         Scanner scan = new Scanner(System.in);
         String words = scan.nextLine().toLowerCase();
+        int t = Integer.MAX_VALUE;
        
         switch(words)
         {
             case "cat":
                 String cName;
-                int mCaught;
+                String mCaught;
                 System.out.println("Enter a name for your cat: ");
                 cName = scan.nextLine();
                 System.out.println("Enter the amount of mice your cat has caught: ");
-                mCaught = scan.nextInt();
-                zoo.add(new Cat(mCaught, cName));
+                mCaught = scan.nextLine();
+                while(t == Integer.MAX_VALUE)
+                {
+                    try{
+                   it.checkInt(mCaught);
+                   t = 0;
+                    }
+                    catch(NumberFormatException e)
+                    {
+                        System.out.println("Please enter a number: ");
+                        mCaught = scan.nextLine();
+                    }
+                }
+                zoo.add(new Cat(it.checkInt(mCaught), cName));
                 break;
                 
             case "dog":
@@ -61,12 +74,24 @@ public class AnimalInput  {
                 
             case "student":
                 String sName;
-                int age;
+                String age;
                 System.out.println("Whats the Students name? ");
                 sName = scan.nextLine();
                 System.out.println("Whats the Students age? ");
-                age = scan.nextInt();
-                zoo.add(new Student(age, sName));
+                age = scan.nextLine();
+                while(t == Integer.MAX_VALUE)
+                 {
+                    try{
+                   it.checkInt(age);
+                   t = 0;
+                    }
+                    catch(NumberFormatException e)
+                    {
+                        System.out.println("Please enter a number: ");
+                        age = scan.nextLine();
+                    }
+                }
+                zoo.add(new Student(it.checkInt(age), sName));
         }
 
         
@@ -74,6 +99,7 @@ public class AnimalInput  {
     // convert the char  from Dog into a boolean
     public boolean checkNice(char cFriendly)
     {
+     Scanner scan = new Scanner(System.in);
      boolean nice = false;
         switch(cFriendly)
         {
@@ -85,6 +111,7 @@ public class AnimalInput  {
                 return false;
             default:
                 System.out.println("Please enter a (Y/N");
+                cFriendly = scan.next().charAt(0);
         }
        return nice;
     }

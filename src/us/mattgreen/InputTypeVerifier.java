@@ -9,20 +9,13 @@ package us.mattgreen;
  *
  * @author tyler
  */
-public class InputTypeVerfier {
-    
-    public String checkString()
-    {
-        
+public class InputTypeVerifier {
+  
+    public int checkInt(String str) throws NumberFormatException
+    { 
+               int i = Integer.parseInt(str);
+            
+        return i;
     }
-    
-    public int checkInt()
-    {
-        
-    }
-    
-    public char checkChar()
-    {
-        
-    }
+     
 }
